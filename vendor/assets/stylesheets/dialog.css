@@ -1,0 +1,164 @@
+/*****************************/
+/* dialog */
+/*****************************/
+.dialog,
+.dialog__overlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.dialog {
+    position: fixed;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 300;
+}
+
+.dialog__overlay {
+    position: absolute;
+    z-index: 1;
+    background: rgba(55, 58, 71, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s;
+    -webkit-backface-visibility: hidden;
+}
+
+.dialog--open .dialog__overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dialog__content {
+    width: 30%;
+    max-width: 380px;
+    min-width: 290px;
+    background: #fff;
+    padding: 4em;
+    box-sizing: initial;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    opacity: 0;
+}
+
+.dialog--open .dialog__content {
+    pointer-events: auto;
+}
+
+/* Content */
+.dialog h2 {
+    padding: 0 0 2em;
+    font-size: 30px;
+}
+
+
+/* Cathy */
+.dialog__overlay {
+    transition-duration: 0.4s;
+}
+
+.dialog__content {
+    overflow: hidden;
+}
+
+.dialog.dialog--open .dialog__content,
+.dialog.dialog--close .dialog__content {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.dialog.dialog--open .dialog__content {
+    -webkit-animation-name: anim-open;
+    animation-name: anim-open;
+    -webkit-animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+    animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.dialog.dialog--close .dialog__content {
+    -webkit-animation-name: anim-close;
+    animation-name: anim-close;
+}
+
+.dialog.dialog--open h2,
+.dialog.dialog--open h3,
+.dialog.dialog--open fieldset,
+.dialog.dialog--open article,
+.dialog.dialog--open button {
+    -webkit-animation: anim-elem 0.4s both;
+    animation: anim-elem 0.4s both;
+}
+
+.dialog.dialog--open h2,
+.dialog.dialog--open h3 {
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+}
+
+.dialog.dialog--open fieldset,
+.dialog.dialog--open article {
+    -webkit-animation-delay: 0.20s;
+    animation-delay: 0.20s;
+}
+
+.dialog.dialog--open button {
+    -webkit-animation-delay: 0.15s;
+    animation-delay: 0.15s;
+}
+
+@-webkit-keyframes anim-open {
+    0% { opacity: 0; -webkit-transform: translate3d(0, -400px, 0); }
+    100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); }
+}
+
+@keyframes anim-open {
+    0% { opacity: 0; -webkit-transform: translate3d(0, -400px, 0); transform: translate3d(0, -400px, 0); }
+    100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+}
+
+@-webkit-keyframes anim-close {
+    0% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); }
+    100% { opacity: 0; -webkit-transform: translate3d(0, 100px, 0); }
+}
+
+@keyframes anim-close {
+    0% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+    100% { opacity: 0; -webkit-transform: translate3d(0, 100px, 0); transform: translate3d(0, 100px, 0); }
+}
+
+/* Inner elements animations */
+
+@-webkit-keyframes anim-elem {
+    0% { opacity: 0; -webkit-transform: translate3d(0, -100px, 0); }
+    100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); }
+}
+
+@keyframes anim-elem {
+    0% { opacity: 0; -webkit-transform: translate3d(0, -100px, 0); transform: translate3d(0, -100px, 0); }
+    100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+}
+
+
+
+.dialog .close{
+    position: absolute;
+    top: 10px;
+    right: 10px;}
+
+.dialog fieldset, 
+.dialog article{
+    margin-bottom: 30px;}
+
+.dialog input[type="text"], 
+.dialog input[type="password"], 
+.dialog input[type="email"], 
+.dialog select{
+    background-color: #F2F3F4;}

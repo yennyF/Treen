@@ -1,0 +1,47 @@
+/*****************************/
+/* user index */
+/*****************************/
+body#user-index #user_update .dialog__content{
+    min-width: 810px;}
+
+body#user-index #user_update .dialog__content > section{
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content:center;
+            justify-content: center;}
+
+    body#user-index #user_update .dialog__content > section > div{
+        width: 380px;}
+
+    body#user-index #user_update .dialog__content > section > div:first-child{
+        margin-right: 50px;}
+
+
+
+/*****************************/
+/* user setting */
+/*****************************/
+body#user-setting > section{
+	display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    		align-items: center;
+	-webkit-justify-content:center;
+			justify-content: center;}
+
+   	body#user-setting > section > div{
+   		margin: 50px;
+		width: 380px;}
+
+body#user-setting fieldset{
+	margin-bottom: 30px;}
+
+body#user-setting input[type="text"], 
+body#user-setting input[type="password"], 
+body#user-setting input[type="email"], 
+body#user-setting select{
+    background-color: #F2F3F4;}

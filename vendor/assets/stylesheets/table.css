@@ -1,0 +1,118 @@
+/*****************************/
+/* table */
+/*****************************/
+.table{
+    width: 870px;
+    margin: 0 auto;}
+
+    .table #bar-file{
+        width: 100%;
+        padding: 5px;}
+
+    .table .content-table{
+        overflow-y: auto;
+        position: relative;}
+
+        .table .content-table ul {
+            width: 100%;}
+
+            .table .content-table ul li{
+                width: 100%;
+                height: 55px;
+                padding: 0px 5px;
+                margin-bottom: 1px;
+                position: relative;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;}
+
+                .table .content-table ul li .container-checkbox{
+                    width: 55px;
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-justify-content: center;
+                            justify-content: center;        
+                    -webkit-align-items: center;
+                            align-items: center;}
+
+                .table .content-table ul li label,
+                .table .content-table ul li label form{
+                    width: 100%;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;}
+
+                    .table .content-table ul li label span{
+                        margin: 0 15px;
+                        overflow: hidden;
+                        display: -webkit-flex;
+                        display: flex;
+                        -webkit-align-items: center;
+                                align-items: center;}
+
+                    .table .content-table ul li label span[data-type="date"],
+                    .table .content-table ul li label span[data-type="number"]{
+                        -webkit-justify-content: center;
+                                justify-content: center;}
+
+    .table .content-table ul.header{
+        margin: 10px 0;}
+
+        .table .content-table ul.header input[type='checkbox']{
+            border-color: #333;
+            fill: #333;}
+
+        .table .content-table ul.header span{
+            text-align: center;
+            -webkit-justify-content: center;
+                    justify-content: center;}
+
+            .table .content-table ul.header span a{
+                font-family: 'brandon_grotesqueblack';
+                font-size: 12px;
+                letter-spacing: 2px;
+                color: #3D3D3D;
+                text-transform: uppercase;
+                cursor: pointer;
+                -webkit-hyphens: none;
+                   -moz-hyphens: none;
+                        hyphens: none;}
+
+            .table .content-table ul.header span a:hover{
+                color: #f35f5f;}
+
+            .table .content-table ul.header span.orderBy{
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+");
+                background-position: center 90% ;
+                background-repeat: no-repeat;}
+
+                 .table .content-table ul.header span.orderBy a{
+                    color: #f35f5f;}
+
+    .table .content-table ul.body li{
+        transition: all 300ms ease;}
+
+        .table .content-table ul.body li a{
+            font-size: 14px;
+            color: rgba(97,107,107,0.7);
+            white-space: nowrap;}
+
+        .table .content-table ul.body li.active a{
+            color: #f35f5f;}
+
+    .table .content-table ul.body li:not(.update):not(.active) label{
+            cursor: pointer;}
+
+    .table .content-table ul.body li:hover:not(.update):not(.active){
+        box-shadow: inset 0 0 0 1000px rgba(242, 243, 244, .7);}
+ 
+    .table .content-table ul.body li.selected:not(.update):not(.active){
+        background-color: rgba(255, 246, 0, 0.1);}
+        
+    .table .content-table ul.body li.update{
+        background-color: #fff;}
+
+        .table .content-table ul.body li.update input,
+        .table .content-table ul.body li.update select{
+            background-color: #F2F3F4;
+            font-size: 13px;}

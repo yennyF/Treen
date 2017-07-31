@@ -1,0 +1,118 @@
+<% content_for :head do %>
+ 	<%= stylesheet_link_tag 'users' %>
+<% end %>
+
+<body id="user-setting">
+	<section>
+		<div id="user_update_personal">
+			<h2>Editar Datos</h2>
+			<%= form_for :user, html: {onsubmit: "validity.form(this);"}, remote: true, url: {action: "updatePersonal"} do |u| %>
+				<fieldset>
+					<div class="field">
+						<%= u.hidden_field :id %>
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :email, "Correo electrónico", class: "required" %>
+							</div>
+							<div class="col span_1_of_2">
+								<%= u.email_field :email, autocomplete: "off", required: true %>
+							 	<div class="validateMsg"></div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :occupation, "Ocupación"%>
+							</div> 
+							<div class="col span_1_of_2">
+							<%= u.select :occupation, options_for_select([["Seleccione","null"], "Profesor/Investigador", "Estudiante", "Otro"], @user.occupation) %>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<div class="wrapper-btn">
+					<button class="btn-text progress" type="submit">
+						<div class="content" data-success="Actualizado" data-error="Inválido">Actualizar</div>
+					</button>
+				</div>
+			<% end %>
+		</div>
+
+		<div id="user_update_password">
+			<h2>Editar Contraseña</h2>
+			<%= form_for :user, html: {onsubmit: "validity.form(this);"}, remote: true, url: {action: "updatePassword"} do |u| %>
+				<fieldset>
+					<div class="field">
+						<%= u.hidden_field :id %>
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :password, "Contraseña", class: "required" %>
+							</div>
+							<div class="col span_1_of_2">
+								<%= u.password_field :password, maxlength: 5, pattern: "[a-zA-Z0-9-(!#\$%&\?)]{5}$", autocomplete: "off", required: true %>
+								<div class="validateMsg"></div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<label class="required" >Confirmar contraseña</label>
+							</div>
+							<div class="col span_1_of_2">
+								<input maxlength="5" autocomplete="off" size="5" type="password" id="user_passwordConfirm" required>
+								<div class="validateMsg"></div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<div class="wrapper-btn">
+					<button class="btn-text progress" type="submit">
+						<div class="content" data-success="Actualizado" data-error="Inválido">Actualizar</div>
+					</button>
+				</div>
+			<% end %>	
+		</div>
+	</section>
+</body>
+
+<script type="text/javascript">
+	(function() {
+		$(".main_nav li[name-page='setting']").addClass('active');
+
+		/*
+		* validate
+		*/
+		document.getElementById('user_email').addEventListener('input', function(){
+			validity.field(this, 'ejemplo@correo.com');
+		});
+
+		document.getElementById('user_password').addEventListener('input', function(){
+			validity.field(this, 'Debe contener 5 caracteres alfanuméricos y/o !@#$%&?');
+			validity.fieldConfirm(this, document.getElementById('user_passwordConfirm'));
+		});
+
+		document.getElementById('user_passwordConfirm').addEventListener('input', function(){
+			validity.fieldConfirm(document.getElementById('user_password'), this);
+		});
+
+
+
+		/*
+		* CRUD
+		*/
+		$('#user_update_personal form, #user_update_password form').on('ajax:success', function(event, data, status, xhr) {
+			if(data.errors !== undefined){
+				validity.setProgress(this, 'error');
+				validity.setFields(this, data.errors);
+			}else{
+				validity.setProgress(this, 'success');
+			}
+
+		}).on('ajax:error', function(event, xhr, status, error) {
+			//report
+		});
+	
+	})();
+</script>

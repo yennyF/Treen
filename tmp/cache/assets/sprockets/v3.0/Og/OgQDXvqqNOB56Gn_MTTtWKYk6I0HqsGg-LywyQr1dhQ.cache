@@ -1,0 +1,9 @@
+{:uriI"Œfile://app/assets/fonts/inconsolata/generator_config.txt?type=text/plain&id=aa804d22029684ded3544f9caa58713bb5d8fa823cbf739567036a3fe05b2832:ET:load_pathI"app/assets/fonts;T:filenameI"6app/assets/fonts/inconsolata/generator_config.txt;T:	nameI"!inconsolata/generator_config;T:logical_pathI"%inconsolata/generator_config.txt;T:content_typeI"text/plain;T:sourceI"/# Font Squirrel Font-face Generator Configuration File
+# Upload this file to the generator to recreate the settings
+# you used to create these fonts.
+
+{"mode":"optimal","formats":["ttf","woff","woff2","eotz"],"tt_instructor":"default","fix_vertical_metrics":"Y","fix_gasp":"xy","add_spaces":"Y","add_hyphens":"Y","fallback":"none","fallback_custom":"100","options_subset":"basic","subset_custom":"","subset_custom_range":"","subset_ot_features_list":"","css_stylesheet":"stylesheet.css","filename_suffix":"-webfont","emsquare":"2048","spacing_adjustment":"0"};T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"4processors:type=text/plain&file_type=text/plain;TTI"Dfile-digest://app/assets/fonts/inconsolata/generator_config.txt;TTF:charsetI"
+utf-8;F:digest"% Òw0-g±¼a8kÑ™Íj…ŞBaÀ»¸n£ø¬	:lengthi/:dependencies_digest"%ú~%Ô_•H^Fj©˜êÂª¿UZór6udßI:idI"Eaa804d22029684ded3544f9caa58713bb5d8fa823cbf739567036a3fe05b2832;F:
+mtimel+Î!¸U

@@ -1,0 +1,27 @@
+<% @users.each do |user| %>
+	<li data-id="<%= user.id %>" >
+		<div class="container-checkbox">
+			<input name="check-one" type="checkbox">
+		</div>
+		<label>
+			<span data-col="username" class="span_1_of_6">
+				<a><%= user.username %></a>
+			</span>
+			<span data-col="email" class="span_2_of_6">
+				<a ><%= user.email %></a>
+			</span>
+			<span data-col="occupation" class="span_2_of_6">
+				<a><%= (user.occupation != 'null')? user.occupation : '' %></a>
+			</span>
+			<span data-col="rol" class="span_1_of_8">
+				<a><%= user.rol %></a>
+			</span>
+			<span data-col="documents" class="span_1_of_8"  data-type="number">
+				<a><%= user.documents.length %></a>
+			</span>
+			<span data-col="updated_at" class="span_1_of_5" data-type="date">
+				<a><%= user.updated_at.strftime("%d %b %Y") %></a>
+			</span>
+		</label>
+	</li>
+<% end %>

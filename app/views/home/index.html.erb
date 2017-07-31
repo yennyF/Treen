@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%= favicon_link_tag 'layers2.ico' %>
+		<title>Treen : : Inicio</title>
+
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Language" content="es">
+		<meta name="description" content="Aplicación para el dibujado de árboles">
+		<meta name="keywords" content="HTML5 dibujar grafo árboles">
+		<%= csrf_meta_tags %>
+		
+		<%= stylesheet_link_tag 'application', media: 'all'%>
+		<%= javascript_include_tag 'application' %>
+		
+		<%= stylesheet_link_tag 'home' %>
+	</head>
+	
+	<body id="home-index">
+		<section>
+			<header>
+				<div class="logo_icon"></div>
+				<h1 class="main_title"><span style="">Treen</span></h1>
+				<h2 class="sub_title">Árboles sobre canvas</h2>
+			</header>
+
+			<div id="intro">
+				<p><spam style="color: #0e83cd">Treen</spam> es un editor de árboles basado en <spam style="color: #ff8000">HTML5</spam>.</p> 
+				<br><br>
+				<ul>
+					<li>
+						<div class="icon"></div>
+						<p>Totalmente gratuito</p>
+					</li>
+					<li>
+						<div class="icon"></div>
+						<p>Simple y fácil de manejar</p>
+					</li>
+					<li>
+						<div class="icon"></div>
+						<p>Almacenamiento online</p>
+					</li>
+					<li>
+						<div class="icon"></div>
+						<p>Exportación PNG y LaTeX</p>
+					</li>
+				</ul>
+			</div>
+
+			<div id="wrapper-choice">
+				<form method="get" action="documents/show">
+					<button class="btn-text" type="submit">Probar</button>
+				</form>
+				<button data-dialog="user_autenticate" class="btn-text trigger-dialog">Ingresar</button>
+			</div>
+		</section>
+
+		<%= render "layouts/footer" %>
+
+		<div id="user_autenticate" class="dialog">
+			<div class="dialog__overlay"></div>
+			<div class="dialog__content">
+				<h2>Iniciar sesión</h2>
+				<%= form_for :user, html: {onsubmit: "validity.form(this);"}, remote: true, url: "login" do |u| %>
+					<fieldset>
+						<div class="field">
+							<div class="section group">
+								<div class="col span_1_of_2">
+									<label for="authenticate_username" class="required">Nombre de usuario</label>
+								</div> 
+								<div class="col span_1_of_2">
+									<input id="authenticate_username" type="text" name="authenticate_username" maxlength="10" required>
+									<div class="validateMsg"></div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="section group">
+								<div class="col span_1_of_2">
+									<label for="authenticate_password" class="required">Contraseña</label>
+								</div>
+								<div class="col span_1_of_2">
+									<input id="authenticate_password" type="password" name="authenticate_password"  maxlength="5" required="">
+									<div class="validateMsg"></div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<a data-dialog="user_recover" class="trigger-dialog">¿Olvidaste tu cuenta o contraseña?</a>
+					</fieldset>
+					
+					<button class="btn-text progress" type="submit">
+						<div class="content" data-success="Autenticado" data-error="Inválido">Ingresar</div>
+					</button>
+
+					<button class="close btn-icon" type="button" data-dialog-close>
+						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+							<g>
+								<polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011"/>
+							</g>
+						</svg>
+					</button>
+				<% end %>
+				<button data-dialog="user_create" class="btn-text trigger-dialog">Registrar</button>
+			</div>
+		</div>
+
+		<div id="user_create" class="dialog">
+			<div class="dialog__overlay"></div>
+			<div class="dialog__content">
+				<h2>Nuevo Registro</h2>
+				<%= form_for :user, html: {onsubmit: "validity.form(this);"}, remote: true, url: {action: "createUser"} do |u| %>
+					<fieldset>
+						<div class="field">
+							<div class="section group">
+								<div class="col span_1_of_2">
+									<%= u.label :username, "Nombre de usuario", class: "required" %>
+								</div> 
+								<div class="col span_1_of_2">
+									<%= u.text_field :username, maxlength: 10, pattern: "[a-z0-9]{5,10}$", autocomplete: "off", required: true %>
+									 <div class="validateMsg"></div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="section group">
+								<div class="col span_1_of_2">
+									<%= u.label :password, "Contraseña", class: "required" %>
+								</div>
+								<div class="col span_1_of_2">
+									<%= u.password_field :password, maxlength: 5, pattern: "[a-zA-Z0-9-(!@#$%&?)]{5}$", autocomplete: "off", required: true %>
+									<div class="validateMsg"></div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="section group">
+								<div class="col span_1_of_2">
+									<%= u.label :passwordConfirm, "Confirmar contraseña", class: "required" %>
+								</div>
+								<div class="col span_1_of_2">
+									<%= u.password_field :passwordConfirm, maxlength: 5, autocomplete: "off", required: true %>
+								 	<div class="validateMsg"></div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="section group">
+								<div class="col span_1_of_2">
+									<%= u.label :email, "Correo electrónico", class: "required" %>
+								</div>
+								<div class="col span_1_of_2">
+									<%= u.email_field :email,autocomplete: "off", required: true %>
+								 	<div class="validateMsg"></div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="section group">
+								<div class="col span_1_of_2">
+									<%= u.label :ocupation, "Ocupación"%>
+								</div> 
+								<div class="col span_1_of_2">
+								<%= u.select :ocupation, options_for_select([["Seleccione","null"], "Profesor/Investigador", "Estudiante", "Otro"]) %>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					
+					<button class="btn-text progress" type="submit">
+						<div class="content" data-success="Registrado" data-error="Inválido">Registrar</div>
+					</button>
+					<button class="close btn-icon" type="button" data-dialog-close>
+						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+							<g>
+								<polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011"/>
+							</g>
+						</svg>
+					</button>
+				<% end %>
+			</div>
+		</div>
+
+		<div id="user_recover" class="dialog">
+			<div class="dialog__overlay"></div>
+			<div class="dialog__content">
+				<h2>Recuperar contraseña</h2>
+				<article>
+					<p>Disculpe, por los momentos debe contactarse con el administrador del sistema.</p>
+				</article>
+				<!--<article>
+					<p>Te enviaremos la cuenta y la contraseña a tu correo electrónico.</p>
+				</article>
+				<%= form_for :user, html: {onsubmit: "form.isFormValid(this);"}, remote: true, url: {action: "recoverUser"} do |u| %>
+					<fieldset>
+						<div class="field">
+							<div class="section group">
+								<div class="col span_1_of_2">
+									<%= u.label :recover_email, "Correo electrónico", class: "required" %>
+								</div>
+								<div class="col span_1_of_2">
+									<%= u.email_field :recover_email, autocomplete: "off", required: true %>
+								 	<div class="validateMsg"></div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<button class="btn-text progress" type="submit">
+						<div class="content" data-success="Enviado" data-error="Error">Enviar</div>
+					</button>
+				<% end %>-->
+				<button class="close btn-icon" type="button" data-dialog-close>
+					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+						<g>
+							<polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011"/>
+						</g>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+	(function() {
+		/*
+		* validate
+		*/
+		$(document).on('input', "#user_username", function(){
+			validity.field(this, 'Debe contener entre 5 a 10 caracteres alfanuméricos minúsculos');
+		});
+
+		$(document).on('input', "#user_email", function(){
+			validity.field(this, 'ejemplo@correo.com');
+		});
+
+		$(document).on('input', "#user_password", function(){
+			validity.field(this, 'Debe contener 5 caracteres alfanuméricos y/o !@#$%&?');
+			validity.fieldConfirm(this, ($(this).parents('form')).find('#user_passwordConfirm')[0]);
+		});
+
+		$(document).on('input', "#user_passwordConfirm", function(){
+			validity.fieldConfirm(($(this).parents('form')).find('#user_password')[0], this);
+		});
+
+
+
+		/*
+		* dialog
+		*/
+		var dialogFxs = {};
+		var triggers = document.querySelectorAll(".trigger-dialog");
+		for(var i = 0; i < triggers.length; ++i){  
+			var id = triggers[i].getAttribute('data-dialog');
+			var dialog = document.getElementById(id);
+			dialogFxs[id] = new DialogFx(dialog);
+			triggers[i].addEventListener('click', dialogFxs[id].toggle.bind(dialogFxs[id]));
+		}	
+
+		var trigger = document.querySelector(".trigger-dialog[data-dialog='user_recover']");
+		trigger.addEventListener('click', function(){
+			dialogFxs['user_autenticate'].toggle();
+		});
+
+		trigger = document.querySelector(".trigger-dialog[data-dialog='user_create']");
+		trigger.addEventListener('click', function(){
+			dialogFxs['user_autenticate'].toggle();
+
+			document.querySelector("input#user_username").value = document.querySelector("input#authenticate_username").value;
+
+			document.querySelector("input#user_password").value = document.querySelector("input#authenticate_password").value;
+		});
+
+
+
+
+		/*
+		* create
+		*/
+		$('#user_create form').on('ajax:success', function(event, data, status, xhr) {console.log(data.errors);
+			if(data.errors !== undefined){
+				for(key in data.errors){
+					this.querySelector("#user_" + key).setCustomValidity(data.errors[key]);
+					this.querySelector("#user_" + key + " + .validateMsg").innerHTML = data.errors[key];
+				}
+				validity.setProgress(this, 'error');
+			}else{
+				validity.setProgress(this, 'success', true);
+				window.location = "documents";
+			}
+		}).on('ajax:error', function(event, xhr, status, error) {
+			//report
+		});
+
+
+
+		/*
+		* login
+		*/
+		$('#user_autenticate form').on('ajax:success', function(event, data, status, xhr) {console.log(data.errors);
+			if(data.errors !== undefined){
+				for(key in data.errors){
+					this.querySelector("#" + key).setCustomValidity(data.errors[key]);
+					this.querySelector("#" + key + " + .validateMsg").innerHTML = data.errors[key];
+				}
+				validity.setProgress(this, 'error');
+			}else{
+				validity.setProgress(this, 'success', true);
+				window.location = "documents";
+			}
+		}).on('ajax:error', function(event, xhr, status, error) {
+			//report
+		});		
+	})();
+</script>

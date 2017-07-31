@@ -1,0 +1,9 @@
+{:uriI"åfile://app/assets/fonts/dk_quid_pro/generator_config.txt?type=text/plain&id=620a28433059e5e5337c743ee427c6250c90bd38f1d15b37ff79c5cf6e3bca3e:ET:load_pathI"app/assets/fonts;T:filenameI"6app/assets/fonts/dk_quid_pro/generator_config.txt;T:	nameI"!dk_quid_pro/generator_config;T:logical_pathI"%dk_quid_pro/generator_config.txt;T:content_typeI"text/plain;T:sourceI"`# Font Squirrel Font-face Generator Configuration File
+# Upload this file to the generator to recreate the settings
+# you used to create these fonts.
+
+{"mode":"optimal","formats":["woff","woff2"],"tt_instructor":"default","fix_gasp":"xy","fix_vertical_metrics":"Y","metrics_ascent":"","metrics_descent":"","metrics_linegap":"","add_spaces":"Y","add_hyphens":"Y","fallback":"none","fallback_custom":"100","options_subset":"basic","subset_custom":"","subset_custom_range":"","subset_ot_features_list":"","css_stylesheet":"stylesheet.css","filename_suffix":"-webfont","emsquare":"2048","spacing_adjustment":"0"};T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"4processors:type=text/plain&file_type=text/plain;TTI"Dfile-digest://app/assets/fonts/dk_quid_pro/generator_config.txt;TTF:charsetI"
+utf-8;F:digest"%∆í∂ƒ3Hè±¬TX1dj¶Ñ2z◊»B|ÇI+ïóL≥‹:lengthi`:dependencies_digest"%öª2·1”	±˜#.”l'Ä)!xı°›ò;RÉQk∫:idI"E620a28433059e5e5337c743ee427c6250c90bd38f1d15b37ff79c5cf6e3bca3e;F:
+mtimel+ÜÊ<W

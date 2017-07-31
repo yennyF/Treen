@@ -1,0 +1,362 @@
+<% content_for :head do %>
+ 	<%= javascript_include_tag 'table'%>
+	<%= stylesheet_link_tag 'table' %>
+	<%= stylesheet_link_tag 'users' %>
+<% end %>
+
+<body id="user-index">
+	<section>
+		<div id="users" class="table">
+			<div id="bar-file">
+				<div class="section-bar">
+					<button type="button" class="btn-icon create middle-parent trigger-dialog" title="Nuevo" data-dialog="user_create">
+						<svg class="middleXY-child" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" viewBox="0 0 32 32" xml:space="preserve">
+							<g>
+								<path d="M24,14.059V5.584L18.414,0H0v32h24v-0.059c4.499-0.5,7.998-4.309,8-8.941 C31.998,18.366,28.499,14.556,24,14.059z M17.998,2.413L21.586,6h-3.588C17.998,6,17.998,2.413,17.998,2.413z M2,30V1.998h14 v6.001h6v6.06c-4.501,0.498-8,4.308-8,8.941c0,2.829,1.308,5.352,3.35,7H2z M23,29.883c-3.801-0.009-6.876-3.084-6.885-6.883 c0.009-3.801,3.084-6.876,6.885-6.885c3.799,0.009,6.874,3.084,6.883,6.885C29.874,26.799,26.799,29.874,23,29.883z"/>
+								<polygon points="24.002,22 24.002,18 22,18 22,22 18,22 18,24 22,24 22,28 24.002,28 24.002,24 28,24 28,22"/>
+							</g>
+						</svg>
+					</button>
+
+					<button type="button" class="btn-icon update middle-parent trigger-dialog"  title="Editar" data-dialog="user_update" disabled>
+						<svg class="middleXY-child" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 333.817 333.817" xml:space="preserve">
+							<g>
+								<path d="M333.817,60.647L273.163,0L5.818,267.346L0,333.817l28.014-2.452l0.143,0.143l0.167-0.167
+								l38.146-3.341L333.817,60.647z M37.418,252.625L234.14,55.904l6.856,6.856L44.274,259.481L37.418,252.625z M249.433,71.197
+								l15.293,15.293L68.004,283.212l-15.293-15.293L249.433,71.197z M273.163,94.933l4.744,4.744L81.191,296.398l-4.744-4.744
+								L273.163,94.933z M242.577,47.466l4.75-4.744L291.1,86.496l-4.744,4.744L242.577,47.466z M32.519,318.989l-17.692-17.692
+								l2.506-28.587l11.647-11.647l43.773,43.773l-11.647,11.647L32.519,318.989z"/>
+							</g>
+						</svg>
+					</button>
+
+					<button type="button" class="btn-icon delete middle-parent trigger-dialog" title="Eliminar" data-dialog="user_delete" disabled>
+						<svg class="middleXY-child" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" xml:space="preserve">
+							<g>
+								<path d="M12.5,1h-2c0-0.552-0.448-1-1-1h-3c-0.552,0-1,0.448-1,1h-2c-0.552,0-1,0.448-1,1h11
+									C13.5,1.448,13.052,1,12.5,1z"/>
+								<path d="M2.5,15c0,0.552,0.448,1,1,1h9c0.552,0,1-0.448,1-1V3h-11V15z M10.5,5.5C10.5,5.224,10.725,5,11,5
+									s0.5,0.224,0.5,0.5v8c0,0.275-0.225,0.5-0.5,0.5s-0.5-0.225-0.5-0.5V5.5z M7.5,5.5C7.5,5.224,7.724,5,8,5
+									c0.275,0,0.5,0.224,0.5,0.5v8C8.5,13.775,8.275,14,8,14c-0.276,0-0.5-0.225-0.5-0.5V5.5z M4.5,5.5C4.5,5.224,4.724,5,5,5
+									s0.5,0.224,0.5,0.5v8C5.5,13.775,5.276,14,5,14s-0.5-0.225-0.5-0.5V5.5z"/>
+							</g>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<section class="content-table">
+				<ul class="header">
+					<li>
+						<div class="container-checkbox">
+							<input name="check-all" type="checkbox">
+						</div>
+						<label>
+							<span class="span_1_of_6" data-col="username"><a>Usuario</a></span>
+							<span class="span_2_of_6" data-col="email"><a>Correo</a></span>
+							<span class="span_2_of_6" data-col="occupation"><a>Ocupación</a></span>
+							<span class="span_1_of_8" data-col="rol"><a>Rol</a></span>
+							<span class="span_1_of_8" data-col="documents"><a title="Número de documentos creados">Docs</a></span>
+							<span class="span_1_of_5 orderBy" data-col="updated_at"><a title="Última modificación">Modifi.</a></span>
+						</label>
+					</li>
+				</ul>
+				<ul class="body">
+					<%= render 'user' %>
+				</ul>
+			</section>
+		</div>
+	</section>
+
+	<div id="user_create" class="dialog">
+		<div class="dialog__overlay"></div>
+		<div class="dialog__content">
+			<h2>Nuevo Registro</h2>
+			<%= form_for :user, html: {onsubmit: "validity.form(this);"}, remote: true, url: {action: "create"} do |u| %>
+				<fieldset>
+					<div class="field">
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :username, "Nombre de usuario", class: "required" %>
+							</div> 
+							<div class="col span_1_of_2">
+								<%= u.text_field :username, maxlength: 10, pattern: "[a-z0-9]{5,10}$", autocomplete: "off", required: true %>
+								 <div class="validateMsg"></div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :password, "Contraseña", class: "required" %>
+							</div>
+							<div class="col span_1_of_2">
+								<%= u.password_field :password, maxlength: 5, pattern: "[a-zA-Z0-9-(!@#$%&?)]{5}$", autocomplete: "off", required: true %>
+								<div class="validateMsg"></div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :passwordConfirm, "Confirmar contraseña", class: "required" %>
+							</div>
+							<div class="col span_1_of_2">
+								<%= u.password_field :passwordConfirm, maxlength: 5, autocomplete: "off", required: true %>
+							 	<div class="validateMsg"></div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :email, "Correo electrónico", class: "required" %>
+							</div>
+							<div class="col span_1_of_2">
+								<%= u.email_field :email, autocomplete: "off", required: true %>
+							 	<div class="validateMsg"></div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :occupation, "Ocupación"%>
+							</div> 
+							<div class="col span_1_of_2">
+							<%= u.select :occupation, options_for_select([["Seleccione","null"], "Profesor/Investigador", "Estudiante", "Otro"]) %>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="section group">
+							<div class="col span_1_of_2">
+								<%= u.label :rol, "Rol", class: "required" %>
+							</div> 
+							<div class="col span_1_of_2">
+							<%= u.select :rol, options_for_select(["user", "admin"]), required: true %>
+							<div class="validateMsg"></div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				
+				<button class="btn-text progress" type="submit">
+					<div class="content" data-success="Registrado" data-error="Inválido">Registrar</div>
+				</button>
+				<button class="close btn-icon" type="button" data-dialog-close>
+					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+						<g>
+							<polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011"/>
+						</g>
+					</svg>
+				</button>
+			<% end %>
+		</div>
+	</div>
+
+	<div id="user_update" class="dialog">
+		<div class="dialog__overlay"></div>
+		<div class="dialog__content">
+			<h2>Editar Registro</h2>
+			<section>
+				<%= render 'edit' %>
+			</section>
+			<button class="close btn-icon" type="button" data-dialog-close>
+				<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+					<g>
+						<polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011"/>
+					</g>
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<div id="user_delete" class="dialog">
+		<div class="dialog__overlay"></div>
+		<div class="dialog__content">
+			<h2>Confirmación</h2>
+			<article>
+				<p>¿Está seguro que desea borrar los registros seleccionados?</p>
+			</article>
+			<div>
+				<button class="btn-text cancel">No</button>
+				<button class="btn-text accept">Sí</button>
+			</div>
+			<button class="close btn-icon" data-dialog-close>
+				<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" xml:space="preserve">
+					<g>
+						<polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011"/>
+					</g>
+				</svg>
+			</button>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	(function() {
+		$(".main_nav li[name-page='users']").addClass('active');
+
+
+
+		/*
+		* validate
+		*/
+		$(document).on('input', "#user_username", function(){
+			validity.field(this, 'Debe contener entre 5 a 10 caracteres alfanuméricos minúsculos');
+		});
+
+		$(document).on('input', "#user_email", function(){
+			validity.field(this, 'ejemplo@correo.com');
+		});
+
+		$(document).on('input', "#user_password", function(){
+			validity.field(this, 'Debe contener 5 caracteres alfanuméricos y/o !@#$%&?');
+			validity.fieldConfirm(this, ($(this).parents('form')).find('#user_passwordConfirm')[0]);
+		});
+
+		$(document).on('input', "#user_passwordConfirm", function(){
+			validity.fieldConfirm(($(this).parents('form')).find('#user_password')[0], this);
+		});
+
+
+
+		/*
+		* dialog
+		*/
+		var dialogFxs = {};
+		var triggers = document.querySelectorAll(".trigger-dialog");
+		for(var i = 0; i < triggers.length; ++i){ 
+			var id = triggers[i].getAttribute('data-dialog');
+			var dialog = document.getElementById(id);
+			dialogFxs[id] = new DialogFx(dialog);
+			triggers[i].addEventListener('click', dialogFxs[id].toggle.bind(dialogFxs[id]));
+		}
+
+
+
+		/*
+		* CRUD
+		*/
+		/* create */
+		$("#user_create form").on('ajax:success', function(event, data, status, xhr){
+			if(data.errors !== undefined){
+				validity.setProgress(this, 'error');
+				validity.setFields(this, data.errors);
+			}else{
+				validity.setProgress(this, 'success', true);
+				refreshTable();
+			}
+		}).on('ajax:error', function(event, xhr, status, error) {
+			//report
+		});
+
+		/* edit */
+		$('.table #bar-file .update').click(function(){
+			var row = document.querySelector('.table .body li.selected');
+			if(row){
+				$.ajax({
+					url: "/users/edit",
+					data: {id: row.getAttribute('data-id')}, 
+					type: "POST", 
+					dataType: "script",
+					error: function(){
+						//report
+					}
+				});
+			}
+		});
+		$(document).on('ajax:success', "#user_update_personal form, #user_update_password form", 
+			function(event, data, status, xhr){
+				if(data.errors !== undefined){
+					validity.setProgress(this, 'error');
+					validity.setFields(this, data.errors);
+				}else{
+					validity.setProgress(this, 'success');
+					refreshTable();
+				}
+			}
+		);
+		$(document).on('ajax:error', "#user_update_personal form, #user_update_password form", 
+			function(event, data, status, xhr){
+				//report
+			}
+		);
+
+		/* delete */
+		$("#user_delete .accept").click(function(){
+			var els = document.querySelectorAll('.table .body li.selected');
+			if(els.length > 0){
+				var ids = $(els).map(function(){ return $(this).attr("data-id"); }).get();
+				$.ajax({
+					url: "/users/delete",
+					data: {ids: ids},
+					type: "POST", 
+					success: function(){
+						refreshTable();
+					},
+					error: function(){
+						//report
+					}
+				});
+			}
+			dialogFxs['user_delete'].toggle();
+		});
+		$("#user_delete .cancel").click(function(){
+			dialogFxs['user_delete'].toggle();
+		});
+
+
+
+		/* 
+		* order by
+		*/
+		$(".table ul.header span a").click(function(){
+			var column = $(this).parents("span")[0];
+			$(".table ul.header span.orderBy").removeClass("orderBy");
+			$(column).addClass("orderBy");
+			refreshTable();
+		});
+
+
+
+		/* 
+		* refresh table list
+		*/
+		function refreshTable(){
+			var orderBy = (document.querySelector(".table ul.header span.orderBy")).getAttribute('data-col');
+			if(orderBy === 'username')
+				var url = "/users/getUsersOrderByUsername";
+			else if(orderBy === 'email')
+				var url = "/users/getUsersOrderByEmail";
+			else if(orderBy === 'occupation')
+				var url = "/users/getUsersOrderByOccupation";
+			else if(orderBy === 'rol')
+				var url = "/users/getUsersOrderByRol";
+			else 
+				var url = "/users/user"
+
+			var selectedBackups = $(".table ul.body li.selected").map(
+				function(){
+					return $(this).attr("data-id");
+				}).get();
+
+			$.ajax({url: url, type: "POST", dataType: "script",
+				success: function(){
+					for(var i = 0; i < selectedBackups.length; ++i){
+						var li = document.querySelector(".table ul.body li[data-id='" + selectedBackups[i] + "']");
+						if(li){
+							li.className = "selected";
+							li.querySelector("input[name='check-one']").checked = true;
+						}
+					}
+					updateCheckbox();
+				},
+				error: function(){
+					//report
+				}
+			});
+		}
+	})();
+</script>

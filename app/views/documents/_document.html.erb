@@ -1,0 +1,15 @@
+<% @documents.each do |document| %>
+	<li data-id="<%= document.id %>" >
+		<div class="container-checkbox">
+			<input name="check-one" type="checkbox">
+		</div>
+		<label>
+			<span data-col="name" class="span_2_of_3">
+				<a><%= document.name %></a>
+			</span>
+			<span data-col="updated_at" class="span_1_of_3" data-type="date">
+				<a><%= document.updated_at.strftime("%d %b %Y - %I:%M %P") %></a>
+			</span>
+		</label>
+	</li>
+<% end %>

@@ -1,0 +1,328 @@
+/*****************************/
+/* document show (tree graph) */
+/*****************************/
+body#document-show > header{
+    width: 100%;
+    height: 30px;}
+
+body#document-show > section{
+    width: 100%;
+    height: calc(100% - 30px);
+    overflow: hidden;
+    position: relative;}
+
+    body#document-show > section #drawspace{
+        height: calc(100% - 50px);
+        width:  calc(100% - 250px);
+        float: left;
+        position: relative;
+        overflow: auto;}
+
+        body#document-show > section #drawspace canvas{
+            top: 0;
+            left: 0;
+            position: absolute;}
+
+#bar-title{
+    width: 100%;
+    height: 30px;
+    background-color: #E5E7E9;
+    border-bottom: 1px solid rgba(40,44,42,0.1);}
+
+    #bar-title .section-title{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;}
+
+    #bar-title span{
+        font-family: 'inconsolatamedium';
+        line-height: 30px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: #333;}
+
+    #bar-title .btn-icon{
+        height: 30px;
+        width: 30px;}
+
+        #bar-title .btn-icon svg{
+            width: 12px;}
+
+#bar-tool{
+    width: 100%;
+    padding: 0 10px;
+    background-color: #F2F3F4;
+    border-bottom: 1px solid rgba(40,44,42,0.1);
+    position: relative;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;}
+
+    #bar-tool .section-bar:not(:last-child){
+        margin-right: 25px;} 
+
+    #bar-tool .section-bar#section-help:last-child{
+        margin-left: auto;} 
+
+        #bar-tool .section-bar .subtitle{
+            height: 15px;}
+
+            #bar-tool .section-bar .subtitle h1{
+                line-height: 17px;
+                letter-spacing: 1px;
+                font-size: 7px;
+                font-weight: normal;
+                cursor: default;
+                color: #333}
+
+        #bar-tool .section-bar .content{
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;}
+
+#bar-style{
+    width: 250px;
+    height: calc(100% - 50px);
+    float: right;
+    background-color: #F2F3F4;
+    border-left: 1px solid rgba(40,44,42,0.1);}
+
+    @media only screen and (max-width: 480px) {
+    #bar-style{ width: 170px; } }
+
+    #bar-style .tabs{
+        height: 100%;
+        position: relative;}
+
+        #bar-style > .tabs > nav{
+            width: 100%;
+            background-color: #FBFCFC; 
+            position: absolute;
+            bottom: 0;}
+
+        #bar-style .tabs-style-fillup .content-wrap{
+            height: calc(100% - 50px);}
+
+        #bar-style .tabs-style-topline .content-wrap{
+            height: calc(100% - 25px);}
+
+            #bar-style .tabs .content-wrap .container-tab{
+                height: 100%;
+                position: relative;
+                overflow-y: auto;}
+
+            #bar-style .tabs .container-tab .content-tab{
+                padding: 40px;}
+
+    #bar-style fieldset:not(:first-child){
+        margin-top: 25px;}
+
+    #bar-style button{
+        width: 20%;
+        height: 24px;
+        float: left;}
+
+        #bar-style button.active div, 
+        #bar-style button:enabled:hover div{
+            width: 14px !important;
+            height: 14px !important;
+            border: 1px solid #cfcfcf;
+            cursor: pointer;}
+
+        #bar-style button:disabled div{
+            background: #E5E7E9 !important;
+            border-color: #E5E7E9 !important;}
+
+    button .color{
+        width: 10px;
+        height: 10px;
+        -webkit-border-radius: 50%;
+                border-radius: 50%;
+        transition: width 0.15s linear, height 0.15s linear;}
+
+    button .color.white{
+        background: #fff;}
+
+    button .color.black{
+         background: rgb(0, 0, 0);}
+
+    button .color.blue{
+         background: rgb(125, 222, 235);}
+
+    button .color.red{
+         background: rgb(232, 70, 70);}
+
+    button .color.yellow{
+         background: rgb(255, 228, 79);}
+
+    button .color.green{
+         background: rgb(49, 194, 104);}
+
+    button .shape {
+        background-color: #fff;
+        border: 1px solid #cfcfcf;
+        transition: width 0.15s linear, height 0.15s linear;}
+    
+    button .shape#shape-arc {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;}
+
+    button .shape#shape-rect {
+        width: 10px;
+        height: 10px;}
+
+body#document-show .table#documents{
+    height: 100%;}
+
+    body#document-show .table#documents #bar-file{
+        background-color: #F2F3F4;}
+
+    body#document-show .table#documents .animate_menu-content{
+        width: 470px;
+        height: 100%;
+        background-color: #FFF;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;}
+
+        body#document-show .table#documents .content-table{
+            padding: 10px 20px;}
+
+        body#document-show .table#documents .content-table span[data-col="name"]{
+            width: 220px;}
+
+        body#document-show .table#documents .content-table span[data-col="updated_at"]{
+            width: 90px;}
+
+        body#document-show .table#documents .content-table span[data-col="updated_at"] a{
+            
+            width: 100%;}
+
+/*****************************/
+/* note */
+/*****************************/
+.note{
+    position:absolute;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 5px;}
+
+
+
+/*****************************/
+/* btn-grop */
+/*****************************/
+.btn-group{
+    position: relative;}
+
+    .btn-group > button{
+        cursor: default;}
+    
+    .btn-group > button svg{
+        fill: #3D3D3D !important;}
+
+.btn-group .dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #F2F3F4;
+    border: 1px solid rgba(40,44,42,0.1);
+    border-top: none;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.1s;
+    z-index: 1;}
+
+.btn-group.open .dropdown-menu{
+    opacity: 1;
+    visibility: visible;}
+
+
+
+/*****************************/
+/* animate_menu */
+/*****************************/
+.animate_menu{ 
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;}
+
+    .animate_menu .animate_menu-overlay{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background: rgba(55, 58, 71, 0.9);
+        opacity: 0;
+        transition: opacity 0.3s;
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;}
+
+    .animate_menu.open .animate_menu-overlay{
+        opacity: 1;
+        pointer-events: auto;}
+
+    .animate_menu .animate_menu-content{
+        position: fixed;
+        z-index: 2;
+        -webkit-transition: -webkit-transform 0.3s;
+                transition: transform 0.3s;}
+
+    .animate_menu.open .animate_menu-content{
+        pointer-events: auto;}
+
+    /* left */
+    .animate_menu.anime_menu_left .animate_menu-content{
+        top: 0;
+        left: 0;
+        -webkit-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+                transform: translateX(-100%);}
+
+    .animate_menu.anime_menu_left.open .animate_menu-content{
+        -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%);}
+
+
+
+/*****************************/
+/* popup */
+/*****************************/
+.popup{
+    padding: 10px;
+    position: fixed;
+    -webkit-transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+            justify-content: center; }
+
+    .popup.popup_bot{
+        /*box-shadow: 0px -2px 5px rgba(40, 44, 42, 0.1);*/
+        /*border-top: 1px solid rgba(40, 44, 42, 0.3);*/
+        background-color: #fff; 
+        width: 100%; 
+        bottom:0;
+        -webkit-transform: translateY(100%);
+            -ms-transform: translateY(100%);
+                transform: translateY(100%);}
+
+    .popup.popup_bot.open {
+        -webkit-transform: translateY(0%);
+            -ms-transform: translateY(0%);
+                transform: translateY(0%);}
